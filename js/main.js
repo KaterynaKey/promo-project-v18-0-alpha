@@ -434,6 +434,7 @@ function wrapFooterCenterBlock(htmlContent) {
 
 function replaceTripleBrWithSingle (htmlContent) {
     const BR = `<br>\n`;
+    htmlContent = htmlContent.replace(/(<br\s*\/?>\s*)+(<\/(?:div|td|tr|table|span)>)/gi, '$2');
     htmlContent = htmlContent.replace(
         /<\w+[^>]*>\s*<\w+[^>]*>\s*<br\s*\/?>\s*<\/\w+>\s*<\/\w+>/gi,
         BR
