@@ -649,11 +649,12 @@ async function exportHTML() {
     editorContent = wrapSignatureImg(editorContent);
     editorContent = wrapFooterBlock(editorContent);
     editorContent = wrapFooterCenterBlock(editorContent);
-    editorContent = cleanEmptyHtmlTags(editorContent);
-    editorContent = wrapContentInFullTableStructure(editorContent);
+  
 
     editorContent = addOneBr(editorContent);
     editorContent = replaceTripleBrWithSingle(editorContent);
+    editorContent = cleanEmptyHtmlTags(editorContent);
+    editorContent = wrapContentInFullTableStructure(editorContent);
 
     const prettyHtml = await formatWithPrettier(editorContent);
     document.getElementById('output').value = prettyHtml;
